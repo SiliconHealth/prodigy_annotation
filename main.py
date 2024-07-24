@@ -12,6 +12,7 @@ dataset = 'med_0'
 data = []
 df = pd.read_csv(input_file, sep=',', header=None, encoding='utf-8')
 data = df[0].tolist()
+data = [str(d) for d in data if d]
 
 annotator = ProdigyNerAnnotator(
     dataset=ListDataset(
