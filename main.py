@@ -19,14 +19,16 @@ annotator = ProdigyNerAnnotator(
     ),
     dataset_name=dataset,
     config={
-        "labels": ["drug", 'str', 'route', 'dose', 'time'],
+        "labels": ["drug", 'str', 'route', 'dose', 'time', 'amount', 'dose-form'],
         "custom_theme": {
             "labels": {
                 "drug": "lightgreen",
                 "str": "lightblue",
                 "route": "lightgrey",
                 "dose": "yellow",
-                "time": "lightbrown",
+                "time": "brown",
+                "amount": "pink",
+                "dose-form": "purple"
             }
         }
     },
