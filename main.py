@@ -5,16 +5,19 @@ from ner.annotator.prodigy_ner_annotator import ProdigyNerAnnotator
 from ner.bases.dataset_serializer import NerDatasetSerializer
 import pandas as pd 
 
+input_file = '../data_for_annotation/med_0_annotation.txt'
+dataset = 'med_0'
+
 
 data = []
-df = pd.read_csv('../data_for_annotation/med_0_annotation.txt', sep=',', header=None, encoding='utf-8')
+df = pd.read_csv(input_file, sep=',', header=None, encoding='utf-8')
 data = df[0].tolist()
 
 annotator = ProdigyNerAnnotator(
     dataset=ListDataset(
         [Instance(input=d, label='') for d in data]
     ),
-    dataset_name="med_0",
+    dataset_name=dataset,
     config={
         "labels": ["drug", 'str', 'route', 'dose', 'time'],
         "custom_theme": {
