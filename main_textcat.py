@@ -5,9 +5,9 @@ from classifier.annotator.prodigy_text_classifier import ProdigyTextClassificati
 import pandas as pd
 
 
-data = pd.read_csv('../data/med_error_text_classifier_dataset/med_error_text_classifier_dataset_0.csv', encoding='utf-8')
+data = pd.read_csv('../data/med_error_text_classifier_dataset/med_classification_tanupat.csv', encoding='utf-8')
 data = data['risk_all'].tolist()
-
+data = [d for d in data if d]
 annotator = ProdigyTextClassificationAnnotator(
     dataset=ListDataset(
         [Instance(input=d, label=[]) for d in data]
