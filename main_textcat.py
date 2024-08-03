@@ -2,16 +2,15 @@ from datetime import date
 from base.dataset.dataset import ListDataset
 from base.training.example import Instance
 from classifier.annotator.prodigy_text_classifier import ProdigyTextClassificationAnnotator
+import pandas as pd
 
-data = []
-with open('/data/med_error1.jsonl', 'r') as infile:
-    for line in infile:
-        data.append(eval(line))
 
+data = pd.read_csv('../data/med_error_text_classifier_dataset/med_error_text_classifier_dataset_0.csv', encoding='utf-8')
+data = data['risk_all'].tolist()
 
 annotator = ProdigyTextClassificationAnnotator(
     dataset=ListDataset(
-        [Instance(input=d["text"], label=[]) for d in data]
+        [Instance(input=d, label=[]) for d in data]
     ),
     dataset_name="med_error_1",
     config={'options':[
