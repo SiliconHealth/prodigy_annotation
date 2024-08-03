@@ -25,7 +25,8 @@ annotator = ProdigyTextClassificationAnnotator(
     {"id": "ci", "text": "Contraindication"},
     {"id": "omit", "text": "Omitted Medication"},
     {"id": "unneccessary", "text": "Unnecessary Medication"},
-    {"id": "none", "text": "None of the above"}
+    {"id": "adr", "text": "Adverse Drug Reaction"},
+    {"id": "none", "text": "None of the above"}, 
   ], 'choice_style': 'single'
     },
     buffer=ListDataset([]),
