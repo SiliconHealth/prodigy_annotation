@@ -16,6 +16,7 @@ annotator = ProdigyTextClassificationAnnotator(
     ),
     dataset_name="med_error_1",
     config={'options':[
+    {"id": "wronge_patient", "text": "Wrong Patient"},
     {"id": "wrong_med", "text": "Wrong Medication"},
     {"id": "wrong_dose", "text": "Wrong Dose"},
     {"id": "wrong_strength", "text": "Wrong Strength"}, 
