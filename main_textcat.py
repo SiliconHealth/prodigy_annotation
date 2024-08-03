@@ -3,11 +3,13 @@ from base.dataset.dataset import ListDataset
 from base.training.example import Instance
 from classifier.annotator.prodigy_text_classifier import ProdigyTextClassificationAnnotator
 import pandas as pd
+import numpy as np
 
 
 data = pd.read_csv('../data/med_error_text_classifier_dataset/med_classification_tanupat.csv', encoding='utf-8')
+data = data.dropna(subset=['risk_all'])
 data = data['risk_all'].tolist()
-data = [d for d in data if d]
+
 annotator = ProdigyTextClassificationAnnotator(
     dataset=ListDataset(
         [Instance(input=d, label=[]) for d in data]
