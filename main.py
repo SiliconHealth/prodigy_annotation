@@ -5,8 +5,8 @@ from ner.annotator.prodigy_ner_annotator import ProdigyNerAnnotator
 from ner.bases.dataset_serializer import NerDatasetSerializer
 import pandas as pd 
 
-input_file = '../data_for_annotation/med_0_annotation.txt'
-dataset = 'med_0'
+input_file = './data/pii_0_annotation.txt'
+dataset = 'pii_0'
 
 
 data = []
@@ -20,16 +20,17 @@ annotator = ProdigyNerAnnotator(
     ),
     dataset_name=dataset,
     config={
-        "labels": ["drug", 'str', 'route', 'dose', 'time', 'amount', 'dose-form'],
+        "labels": ["tel", 'per', 'pla', 'sex', 'age', 'dat', 'nat', 'id'],
         "custom_theme": {
             "labels": {
-                "drug": "lightgreen",
-                "str": "lightblue",
-                "route": "lightgrey",
-                "dose": "yellow",
-                "time": "brown",
-                "amount": "pink",
-                "dose-form": "purple"
+                "tel": "lightgreen",
+                "per": "lightblue",
+                "pla": "lightgrey",
+                "sex": "yellow",
+                "age": "brown",
+                "dat": "pink",
+                "nat": "purple",
+                "id": "orange",
             }
         }
     },
