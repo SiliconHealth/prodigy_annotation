@@ -5,14 +5,17 @@ from ner.annotator.prodigy_ner_annotator import ProdigyNerAnnotator
 from ner.bases.dataset_serializer import NerDatasetSerializer
 import pandas as pd 
 
-input_file = './data/pii_0_annotation.txt'
+input_file = '../data/newest-1000-1.txt'
 dataset = 'pii_0'
 
 
-data = []
-df = pd.read_csv(input_file, sep=',', header=None, encoding='utf-8')
-data = df[0].tolist()
-data = [str(d) for d in data if d]
+# Open the file in read mode
+with open(input_file, 'r') as file:
+    # Read all lines into a list; each element is a line from the file
+    lines = file.readlines()
+
+# Optionally, strip newline characters from each line
+data = [line.strip() for line in lines]
 
 annotator = ProdigyNerAnnotator(
     dataset=ListDataset(
